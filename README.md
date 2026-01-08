@@ -278,4 +278,26 @@ ___
 
 	![Console output](images/console_output.png)
 ___
+## How the IP works
+
+### 1. Bus Interface (CPU to Hardware Communication)
+The IP acts as a **memory-mapped device** on the SoC bus. It constantly monitors the bus signals to detect when the CPU wants to communicate with it.
+- **Write Logic:** When the chip select (`i_sel`) and write enable (`i_we`) signals are high, the hardware acts as a multiplexer, routing the data from the CPU (`i_wdata`) into one of the three internal 32-bit configuration registers based on the address `i_addr`.
+- **Read Logic:** When `i_sel` is high but `i_we` is low, the hardware routes the contents of its internal registers onto the read data bus (`o_rdata`) back to the CPU.
+
+### 2. Internal Registers (State Storage)
+The IP maintains its state using registers:
+- **`reg_ctrl`**: Stores control bits. Hardware wires **Bit 0** to the internal `ctrl_en` (enable) signal and **Bit 1** to `ctrl_pol` (polarity).
+- **`reg_period`**: Stores the 32-bit value defining the total duration (in clock ticks) of one PWM cycle.
+- **`reg_duty`**: Stores the 32-bit value defining how many ticks the signal should remain "active".
+
+### 3. The Timing Core (Counter & Comparators)
+The core of the IP is a **32-bit synchronous up-counter** and two digital comparators:
+- **Frequency Generation:** On every rising edge of the system clock (`clk`), the hardware compares the current `counter` value to `reg_period - 1`. If the counter has reached the period limit, the hardware resets the counter to 0. Otherwise, it increments the counter by 1.
+- **Pulse Width Generation:** A second comparator continuously checks if the current `counter` is strictly less than the `reg_duty` value. This comparison generates a raw "active" or "inactive" logic level.
+
+### 4. Output Logic (Polarity & Driver)
+The final stage processes the raw signal before driving it out to the SoC:
+- **Polarity Control:** The IP uses the `ctrl_pol` bit to decide whether to invert the signal. If `ctrl_pol` is 1 (Active LOW), the logic inverts the output. If `ctrl_pol` is 0 (Active HIGH), the signal is passed through as-is.
+- **Registered Output:** The final calculated bit is stored in the `pwm_out` flip-flop on the clock edge, ensuring a clean signal driving the external pin.
 

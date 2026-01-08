@@ -301,3 +301,8 @@ The final stage processes the raw signal before driving it out to the SoC:
 - **Polarity Control:** The IP uses the `ctrl_pol` bit to decide whether to invert the signal. If `ctrl_pol` is 1 (Active LOW), the logic inverts the output. If `ctrl_pol` is 0 (Active HIGH), the signal is passed through as-is.
 - **Registered Output:** The final calculated bit is stored in the `pwm_out` flip-flop on the clock edge, ensuring a clean signal driving the external pin.
 
+<video src="[user-images.githubusercontent.com](https://github.com/user-attachments/assets/8a7e2bb8-4ba5-4e02-8c7f-f47f421704f9)" controls width="500">![Demo video](https://github.com/user-attachments/assets/8a7e2bb8-4ba5-4e02-8c7f-f47f421704f9)</video>
+
+https://github.com/user-attachments/assets/8a7e2bb8-4ba5-4e02-8c7f-f47f421704f9
+
+

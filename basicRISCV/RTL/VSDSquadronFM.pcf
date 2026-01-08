@@ -1,0 +1,16 @@
+# Clock & Reset
+set_io CLK 21
+set_io RESET 10
+
+# UART
+set_io TXD 18
+set_io RXD 19
+
+# --- GPIO Pins ---
+set_io LEDS[0] 38  # Bit 0 (LSB)
+set_io LEDS[1] 43  # Bit 1
+set_io LEDS[2] 45  # Bit 2
+set_io LEDS[3] 47  # Bit 3 (MSB)
+
+# PWM
+set_io PWM 28

@@ -1,0 +1,71 @@
+
+icetime topological timing analysis report
+==========================================
+
+Report for critical path:
+-------------------------
+
+        loop-start at net_49691
+        t8465 (LocalMux) I -> O: 1.099 ns
+        inmux_13_7_53571_53617 (InMux) I -> O: 0.662 ns
+        lc40_13_7_4 (LogicCell40) in1 -> lcout: 1.232 ns
+1000002.993 ns net_49691 (gpio_rdata[2])
+        odrv_13_7_49691_45991 (Odrv4) I -> O: 0.649 ns
+        t8471 (Span4Mux_v1) I -> O: 0.344 ns
+        t8470 (LocalMux) I -> O: 1.099 ns
+        inmux_11_6_45787_45843 (InMux) I -> O: 0.662 ns
+        lc40_11_6_6 (LogicCell40) in0 -> lcout: 1.285 ns
+1000007.033 ns net_41908 (CPU.instr_SB_DFFE_Q_29_D_SB_LUT4_O_I1[2])
+        t6230 (LocalMux) I -> O: 1.099 ns
+        inmux_11_5_45665_45690 (InMux) I -> O: 0.662 ns
+        lc40_11_5_1 (LogicCell40) in0 -> lcout: 1.285 ns
+1000010.079 ns net_41780 (CPU.instr_SB_DFFE_Q_29_D[1])
+        t6194 (LocalMux) I -> O: 1.099 ns
+        inmux_10_4_41722_41730 (InMux) I -> O: 0.662 ns
+        lc40_10_4_0 (LogicCell40) in0 -> lcout: 1.285 ns
+1000013.125 ns net_37825 (CPU.instr_SB_DFFE_Q_29_D_SB_LUT4_I3_O[2])
+        t5533 (LocalMux) I -> O: 1.099 ns
+        inmux_9_3_37759_37812 (InMux) I -> O: 0.662 ns
+        lc40_9_3_6 (LogicCell40) in0 -> lcout: 1.285 ns
+1000016.172 ns net_33877 (CPU.RegisterBank.0.0_WDATA_11_SB_LUT4_O_I2[3])
+        t4970 (LocalMux) I -> O: 1.099 ns
+        inmux_8_2_33811_33867 (InMux) I -> O: 0.662 ns
+        lc40_8_2_7 (LogicCell40) in3 -> lcout: 0.874 ns
+1000018.807 ns net_29888 (CPU.RegisterBank.0.0_WDATA_11)
+        odrv_8_2_29888_33773 (Odrv4) I -> O: 0.649 ns
+        t4636 (Span4Mux_v4) I -> O: 0.649 ns
+        t4635 (Span4Mux_v4) I -> O: 0.649 ns
+        t4634 (Span4Mux_h3) I -> O: 0.397 ns
+        t4633 (LocalMux) I -> O: 1.099 ns
+        inmux_6_12_27761_27820 (InMux) I -> O: 0.662 ns
+1000022.913 ns net_27820 (CPU.RegisterBank.0.0_WDATA_11)
+        ram_6_11 (SB_RAM40_4K) WDATA[4] [setup]: 0.305 ns
+1000023.218 ns net_23999 (CPU.PC_SB_DFFESR_Q_22_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3[1])
+
+Resolvable net names on path:
+1000002.993 ns ..1000005.748 ns gpio_rdata[2]
+1000007.033 ns ..1000008.794 ns CPU.instr_SB_DFFE_Q_29_D_SB_LUT4_O_I1[2]
+1000010.079 ns ..1000011.841 ns CPU.instr_SB_DFFE_Q_29_D[1]
+1000013.125 ns ..1000014.887 ns CPU.instr_SB_DFFE_Q_29_D_SB_LUT4_I3_O[2]
+1000016.172 ns ..1000017.933 ns CPU.RegisterBank.0.0_WDATA_11_SB_LUT4_O_I2[3]
+1000018.807 ns ..1000022.913 ns CPU.RegisterBank.0.0_WDATA_11
+               RDATA[0] -> CPU.PC_SB_DFFESR_Q_30_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_CARRY_CO_I1[1]
+              RDATA[10] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_I1_SB_LUT4_I2_O_SB_LUT4_O_1_I2[1]
+              RDATA[11] -> CPU.PC_SB_DFFESR_Q_17_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I3_SB_CARRY_CO_I1[1]
+              RDATA[12] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_I1_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_CARRY_CO_I1[1]
+              RDATA[13] -> CPU.PC_SB_DFFESR_Q_20_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2[1]
+              RDATA[14] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_I1[1]
+              RDATA[15] -> CPU.PC_SB_DFFESR_Q_16_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2[1]
+               RDATA[1] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3[1]
+               RDATA[2] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_I1_SB_LUT4_I2_O_SB_LUT4_O_I2[1]
+               RDATA[3] -> CPU.PC_SB_DFFESR_Q_19_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2[1]
+               RDATA[4] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_I1_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_CARRY_CO_CI_SB_CARRY_CO_I1[1]
+               RDATA[5] -> CPU.PC_SB_DFFESR_Q_21_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3[1]
+               RDATA[6] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_CI_SB_CARRY_CO_I1[1]
+               RDATA[7] -> CPU.PC_SB_DFFESR_Q_17_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_O_I2[1]
+               RDATA[8] -> CPU.PC_SB_DFFESR_Q_23_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_LUT4_I2_I3_SB_CARRY_CO_I1_SB_LUT4_I2_O_SB_LUT4_O_I3_SB_CARRY_CO_I1_SB_LUT4_I2_O_SB_LUT4_O_1_I2[1]
+               RDATA[9] -> CPU.PC_SB_DFFESR_Q_22_D_SB_LUT4_O_I2_SB_LUT4_O_I3_SB_LUT4_I2_O_SB_LUT4_O_I3[1]
+
+Total number of logic levels: 7
+Total path delay: 1000023.22 ns (0.00 MHz)
+

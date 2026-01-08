@@ -26,7 +26,7 @@ module testbench;
         #100 RESET = 1;
         #100 RESET = 0; 
 
-        #600000000;
+        #1000000000;
         $finish;
     end
 endmodule
